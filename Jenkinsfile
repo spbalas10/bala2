@@ -10,13 +10,12 @@ node {
    
    }
    
-   stage('Sonar Publish'){
+   /*stage('Sonar Publish'){
 	   withCredentials([string(credentialsId: 'sonarqube', variable: 'sonarToken')]) {
         def sonarToken = "sonar.login=${sonarToken}"
         sh "${mvn} sonar:sonar -D${sonarUrl}  -D${sonarToken}"
 	 }
-      
-   }
+      }*/
    
 	
    stage('Mvn Package'){
@@ -25,7 +24,7 @@ node {
 	   sh "${mvn} clean package deploy"
    }
    
-   stage('deploy-dev'){
+   /*stage('deploy-dev'){
        def tomcatDevIp = '172.31.28.172'
 	   def tomcatHome = '/opt/tomcat8/'
 	   def webApps = tomcatHome+'webapps/'
@@ -46,6 +45,6 @@ node {
 Thanks,
 DevOps Team""", cc: '', from: '', replyTo: '', subject: "${env.JOB_NAME} Success", to: 'hari.kammana@gmail.com'
    
-   }
+   }*/
 }
 
